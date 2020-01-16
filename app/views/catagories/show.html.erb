@@ -1,0 +1,27 @@
+<div class="container">
+<h2><%= @catagory.name %></h2>
+
+<h2>All Products</h2>
+<% @catagory.products.each do |product| %>
+  <p>
+    <strong>Product ID:</strong>
+    <%= product.id %>
+  </p>
+  <p>
+    <strong>Product Name:</strong>
+    <%= product.name %>
+  </p>
+    <p>
+    <strong>Product Discription:</strong>
+    <%= product.discription %>
+  </p>
+  <p>
+    <strong>Product Price:</strong>
+    <%= product.price %>
+  </p>
+  <%= link_to "Eidt Product", edit_catagory_product_path(@catagory, product) %>
+  <%= link_to "Delete Product", [@catagory ,product], method: :delete, data:{ confirm:"Are You sure?" } %><br><br>
+<% end %>
+<h2><%= link_to "Add New Products", "#", class: "hide", data: {'js-hide-link' => true} %></h2>
+<%= render partial: "product", locals: {catagory: @catagory}%>
+</div>

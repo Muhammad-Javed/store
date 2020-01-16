@@ -1,0 +1,20 @@
+<section id="new-product">
+  <%= form_with(model:[@catagory,@catagory.products.build], local: true) do |form|%>
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name, minlength: 5, maxlength:30, :required => true  %>
+    </p>
+      <p>
+      <%= form.label :price %><br>
+      <%= form.number_field :price, minlength: 1, maxlength:30, :required => true  %>
+    </p>
+    <p>
+      <%= form.label :discription %><br>
+      <%= form.text_area :discription, minlength: 10, maxlength:255, :required => true %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</section>
+

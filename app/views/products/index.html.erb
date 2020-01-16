@@ -1,0 +1,20 @@
+<% @products.each do |product| %>
+  <p>
+    <strong>Product ID:</strong>
+    <%= product.id %>
+  </p>
+  <p>
+    <strong>Product Name:</strong>
+    <%= product.name %>
+  </p>
+    <p>
+    <strong>Product Discription:</strong>
+    <%= product.discription %>
+  </p>
+  <p>
+    <strong>Product Price:</strong>
+    <%= product.price %>
+  </p>
+  <%= link_to "Eidt Product", edit_catagory_product_path(@catagory, product) %>
+  <%= link_to "Delete Product", [@catagory ,product], method: :delete, data:{ confirm:"Are You sure?" } %><br><br>
+<% end %>

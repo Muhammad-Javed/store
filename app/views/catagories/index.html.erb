@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-sm-12"><h2>All catagoreies</h2></div>
+  <% @catagories.each do |catagory| %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-4" ><%= catagory.id %></div>
+        <div class="col-sm-8" ><h4><%= catagory.name %></h4></div>
+      </div>
+    </div>
+    <div class="col-sm-8" >
+      <div class="row">
+        <div class="col"><%= link_to  "Edit", edit_catagory_path(catagory.id) %></div>
+        <div class="col"><%= link_to  "Products", catagory_path(catagory.id) %></div>
+        <div class="col"> <%= link_to "Delete", catagory_path(catagory.id), method: :delete, data:{ confirm: "are you sure?" } %>
+        </div>
+        <div class="col"> Created by:<br> <%=  catagory.user.email%></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to "Add New Catagory", new_catagory_path %>
+</div>
+

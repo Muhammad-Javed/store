@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Add New Catagory</h2>
+  <%= form_for @catagory do |cata| %>
+    <% if @catagory.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@catagory.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @catagory.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%=  cata.label :name  %><br>
+    <%=  cata.text_field :name%> <br>
+    <%=  cata.submit %>
+  <% end %>
+</div>
+
+
